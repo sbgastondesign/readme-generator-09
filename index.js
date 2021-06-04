@@ -2,6 +2,8 @@
 const inquirer = require('inquirer')
 const fs = require('fs')
 const generateMarkdown = require('./utils/generateMarkdown')
+const data = generateMarkdown
+
 
 const generateHTML = (answers) =>
     `<!DOCTYPE html>
@@ -83,120 +85,124 @@ const generateHTML = (answers) =>
     
     </html>`;
 
-// TODO: Create an array of questions for user input
-
-
+// An array of questions for user input
 const questions = [
-    inquirer
-        .prompt([
-            {
-                type: 'input',
-                name: 'title',
-                message: 'Title of your project?',
-            },
-            {
-                type: 'input',
-                name: 'goal',
-                message: 'Describe the goal of your project',
-            },
-            {
-                type: 'input',
-                name: 'motivation',
-                message: 'Why did you build this?',
-            },
-            {
-                type: 'input',
-                name: 'solution',
-                message: 'What problem does it solve?',
-            },
-            {
-                type: 'input',
-                name: 'learned',
-                message: 'What did you learn?',
-            },
-            {
-                type: 'input',
-                name: 'special_feature',
-                message: 'What makes your project stand out?',
-            },
-            {
-                type: 'input',
-                name: 'challenges',
-                message: 'What challenges did you encounter?',
-            },
-            {
-                type: 'input',
-                name: 'improvement',
-                message: 'What features or improvements do you have planned for the future?',
-            },
-            {
-                type: 'input',
-                name: 'deployed_link',
-                message: 'Link your deployed project',
-            },
-            {
-                type: 'input',
-                name: 'summary',
-                message: 'Describe the deployed project link (if included) and summarize your experience building the project.',
-            },
-            {
-                type: 'input',
-                name: 'installation',
-                message: 'What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.',
-            },
-            {
-                type: 'input',
-                name: 'usage',
-                message: 'Provide instructions and examples for use. Include screenshots as needed. Syntax for screenshot: ![alt text](assets/images/screenshot.png)',
-            },
-            {
-                type: 'input',
-                name: 'license',
-                message: 'Enter a License. If needed refer to [https://choosealicense.com/](https://choosealicense.com/).',
-            },
-            {
-                type: 'input',
-                name: 'contributions',
-                message: 'List your collaborators, if any, with links to their GitHub profiles. If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section. If you followed tutorials, include links to those here as well.',
-            },
-            {
-                type: 'input',
-                name: 'tests',
-                message: 'If you wrote tests, provide examples on how to run them here.',
-            },
-            {
-                type: 'input',
-                name: 'github_username',
-                message: 'Enter your Github username.',
-            },
-            {
-                type: 'input',
-                name: 'github_account',
-                message: 'Enter your Github account link.',
-            },
-            {
-                type: 'input',
-                name: 'email',
-                message: 'Enter your email.',
-            },
-        ])
-        .then((answers) => {
-            const htmlPageContent = generateHTML(answers);
-            // ];
-            fs.writeFile('index.html', htmlPageContent, (err) =>
-                err ? console.log(err) : console.log('Successfully created index.html!')
-            );
-        });
+    {
+        type: 'input',
+        name: 'title',
+        message: 'Title of your project?',
+    },
+    {
+        type: 'input',
+        name: 'goal',
+        message: 'Describe the goal of your project',
+    },
+    {
+        type: 'input',
+        name: 'motivation',
+        message: 'Why did you build this?',
+    },
+    {
+        type: 'input',
+        name: 'solution',
+        message: 'What problem does it solve?',
+    },
+    {
+        type: 'input',
+        name: 'learned',
+        message: 'What did you learn?',
+    },
+    {
+        type: 'input',
+        name: 'special_feature',
+        message: 'What makes your project stand out?',
+    },
+    {
+        type: 'input',
+        name: 'challenges',
+        message: 'What challenges did you encounter?',
+    },
+    {
+        type: 'input',
+        name: 'improvement',
+        message: 'What features or improvements do you have planned for the future?',
+    },
+    {
+        type: 'input',
+        name: 'deployed_link',
+        message: 'Link your deployed project',
+    },
+    {
+        type: 'input',
+        name: 'summary',
+        message: 'Describe the deployed project link (if included) and summarize your experience building the project.',
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.',
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'Provide instructions and examples for use. Include screenshots as needed. Syntax for screenshot: ![alt text](assets/images/screenshot.png)',
+    },
+    {
+        type: 'input',
+        name: 'license',
+        message: 'Enter a License. If needed refer to [https://choosealicense.com/](https://choosealicense.com/).',
+    },
+    {
+        type: 'input',
+        name: 'contributions',
+        message: 'List your collaborators, if any, with links to their GitHub profiles. If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section. If you followed tutorials, include links to those here as well.',
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'If you wrote tests, provide examples on how to run them here.',
+    },
+    {
+        type: 'input',
+        name: 'github_username',
+        message: 'Enter your Github username.',
+    },
+    {
+        type: 'input',
+        name: 'github_account',
+        message: 'Enter your Github account link.',
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Enter your email.',
+    },
+]
+// .then((answers) => {
+//     const htmlPageContent = generateHTML(answers);
+//     // ];
+//     fs.writeFile('index.html', htmlPageContent, (err) =>
+//         err ? console.log(err) : console.log('Successfully created index.html!')
+//     );
+// });
 
-
-
-// TODO: Create a function to write README file
-function writeToFile('README.md', data) {
-
+function writeToFile(fileName, data) {
+    // TODO: Write the file using the above parameters
 }
 
-// TODO: Create a function to initialize app
-function init() { }
+writeToFile("README.md", data);
+//     // TODO: Create a function to write README file
+//     function writeToFile('README.md', data) {
+// }
 
-// Function call to initialize app
+// // TODO: Create a function to initialize app
+// function init() { }
+function init() {
+    inquirer.prompt(questions)
+        .then(answers => {
+            console.log("Inquirer Answers: ", answers);
+        });
+}
+// // Function call to initialize app
 init();
+
