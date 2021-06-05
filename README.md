@@ -9,11 +9,14 @@ The goal was to create a node.js app that uses the inquirer package prompts to c
 
 ## Results:
 
-![Finished site.](./assets/readme-generator-screen-shot)
+![Finished site.](assets/readme-generator-screen-shot.png)
+![Walkthrough Video:](./assets/GastonReadmeGeneratorNodeWalkthrough.mp4)
+https://drive.google.com/file/d/1Dg-q6-Vfw2qgyqAyiJ5WeJizuDC--bfW/view?usp=sharing
+
+## Github link:
 https://github.com/sbgastondesign/readme-generator-09
 
 ## Table of Contents
-If your README is long, add a table of contents to make it easy for users to find what they need.
 - [Goal](#Goal)
 - [Issues](#Issues)
 - [Results](#Results)
