@@ -5,85 +5,118 @@ const generateMarkdown = require('./utils/generateMarkdown')
 const data = generateMarkdown
 
 
-const generateHTML = (answers) =>
-    `<!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <title>README.md Generator</title>
-    </head>
-    
-    <body>
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-    
-                <h1 class="display-4">${answers.title}</h1>
-    
-                <div>
-                    <h2 class="display-4">Description</h2>
-                    <ul class="list-group">
-                        <li class="list-group-item" id="goal">${answers.goal}</li>
-                        <li class="list-group-item">${answers.motivation}</li>
-                        <li class="list-group-item">${answers.solution}</li>
-                        <li class="list-group-item">${answers.learned}</li>
-                        <li class="list-group-item">${answers.special_feature}</li>
-                        <li class="list-group-item" id="challenges">${answers.challenges}</li>
-                        <li class="list-group-item">${answers.improvement}</li>
-                        <li class="list-group-item" id="results">${answers.deployed_link}</li>
-                        <li class="list-group-item" id="summary">${answers.summary}</li>
-                    </ul>
-                </div>
-    
-                <div>
-                    <h2 class="display-4">Table of Contents</h2>
-                    <ul class="list-group">
-                        <li><a href="#goal" class="list-group-item">Goals</a></li>
-                        <li><a href="#challenges" class="list-group-item">Challenges</a></li>
-                        <li><a href="#results" class="list-group-item">Results</a></li>
-                        <li><a href="#summary" class="list-group-item">Summary</a></li>
-                        <li><a href="#installation" class="list-group-item">Installation</a></li>
-                        <li><a href="#usage" class="list-group-item">Usage</a></li>
-                        <li><a href="#contributions" class="list-group-item">Contributions</a></li>
-                        <li><a href="#tests" class="list-group-item">Tests</a></li>
-                        <li><a href="#contact" class="list-group-item">Contact Info</a></li>
-                    </ul>
-                </div>
-    
-                <div>
-                    <h2 class="display-4">Installation</h2>
-                    <p id="installation">${answers.github}</p>
-                </div>
-    
-                <div>
-                    <h2 class="display-4">Usage</h2>
-                    <p id="usage">${answers.usage}</p>
-                </div>
-    
-                <div>
-                    <h2 class="display-4">Contributions</h2>
-                    <p id="contributions">${answers.contributions}</p>
-                </div>
-    
-                <div>
-                    <h2 class="display-4">Tests</h2>
-                    <p id="tests">${answers.tests}</p>
-                </div>
-    
-                <h2 id="contact" class="display-4">Contact Info</h2>
-                <ul class="list-group">
-                    <li class="list-group-item">${answers.github_username}</li>
-                    <li class="list-group-item">${answers.github_account}</li>
-                    <li class="list-group-item">${answers.email}</li>
-                </ul>
-    
-            </div>
-        </div>
-    </body>
-    
-    </html>`;
+// const readmeContent = (answers) =>
+//     `# ${data.title}
+// ## Description
+// ${data.goal}
+// ${data.motivation}
+// ${data.solution}
+// ${data.learned}
+// ${data.special_feature}
+// ${data.challenges}
+// ${data.improvement}
+// ${data.deployed_link}
+// ${data.summary}
+// ## Table of Contents
+// -[Goals](#goal)
+// -[Challenges](#challenges)
+// -[Results](#deployed_link)
+// -[Summary](#summary)
+// -[Installation](#installation)
+// -[Usage](#usage)
+// -[Contributions](#contributions)
+// -[Tests](#tests)
+// -[Contact Info](#github_username)
+
+
+// ${data.installation}
+// ${data.github}
+// ${data.usage}
+// ${data.contributions}
+// ${data.tests}
+// ## Contact Info
+// ${data.github_username}
+// ${data.github_account}
+// ${data.email}
+// `;
+// //     `<!DOCTYPE html>
+//     <html lang="en">
+
+//     <head>
+//         <meta charset="UTF-8">
+//         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+//         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+//         <title>README.md Generator</title>
+//     </head>
+
+//     <body>
+//         <div class="jumbotron jumbotron-fluid">
+//             <div class="container">
+
+//                 <h1 class="display-4">${answers.title}</h1>
+
+//                 <div>
+//                     <h2 class="display-4">Description</h2>
+//                     <ul class="list-group">
+//                         <li class="list-group-item" id="goal">${answers.goal}</li>
+//                         <li class="list-group-item">${answers.motivation}</li>
+//                         <li class="list-group-item">${answers.solution}</li>
+//                         <li class="list-group-item">${answers.learned}</li>
+//                         <li class="list-group-item">${answers.special_feature}</li>
+//                         <li class="list-group-item" id="challenges">${answers.challenges}</li>
+//                         <li class="list-group-item">${answers.improvement}</li>
+//                         <li class="list-group-item" id="results">${answers.deployed_link}</li>
+//                         <li class="list-group-item" id="summary">${answers.summary}</li>
+//                     </ul>
+//                 </div>
+
+//                 <div>
+//                     <h2 class="display-4">Table of Contents</h2>
+//                     <ul class="list-group">
+//                         <li><a href="#goal" class="list-group-item">Goals</a></li>
+//                         <li><a href="#challenges" class="list-group-item">Challenges</a></li>
+//                         <li><a href="#results" class="list-group-item">Results</a></li>
+//                         <li><a href="#summary" class="list-group-item">Summary</a></li>
+//                         <li><a href="#installation" class="list-group-item">Installation</a></li>
+//                         <li><a href="#usage" class="list-group-item">Usage</a></li>
+//                         <li><a href="#contributions" class="list-group-item">Contributions</a></li>
+//                         <li><a href="#tests" class="list-group-item">Tests</a></li>
+//                         <li><a href="#contact" class="list-group-item">Contact Info</a></li>
+//                     </ul>
+//                 </div>
+
+//                 <div>
+//                     <h2 class="display-4">Installation</h2>
+//                     <p id="installation">${answers.github}</p>
+//                 </div>
+
+//                 <div>
+//                     <h2 class="display-4">Usage</h2>
+//                     <p id="usage">${answers.usage}</p>
+//                 </div>
+
+//                 <div>
+//                     <h2 class="display-4">Contributions</h2>
+//                     <p id="contributions">${answers.contributions}</p>
+//                 </div>
+
+//                 <div>
+//                     <h2 class="display-4">Tests</h2>
+//                     <p id="tests">${answers.tests}</p>
+//                 </div>
+
+//                 <h2 id="contact" class="display-4">Contact Info</h2>
+//                 <ul class="list-group">
+//                     <li class="list-group-item">${answers.github_username}</li>
+//                     <li class="list-group-item">${answers.github_account}</li>
+//                     <li class="list-group-item">${answers.email}</li>
+//                 </ul>
+
+//             </div>
+//         </div>
+//     </body>
+
+//     </html>`;
 
 // An array of questions for user input
 const questions = [
@@ -178,15 +211,40 @@ const questions = [
         message: 'Enter your email.',
     },
 ]
+
+//  }.then(answers => {
+//     const {
+//         title,
+//         description,
+//         goal,
+//         motivation,
+//         solution,
+//         learned,
+//         special_feature,
+//         challenges,
+//         improvement,
+//         deployed_link,
+//         summary,
+//         installation,
+//         github,
+//         usage,
+//         contributions,
+//         tests,
+//         github_username,
+//         github_account,
+//         email,
+//     });
+
 // .then((answers) => {
-//     const htmlPageContent = generateHTML(answers);
-//     // ];
-//     fs.writeFile('index.html', htmlPageContent, (err) =>
+//     const readmeContent = generateMarkdown(answers);
+//     fs.writeFile('README.md', readmeContent, (err) =>
 //         err ? console.log(err) : console.log('Successfully created index.html!')
 //     );
 // });
 
+
 function writeToFile(fileName, data) {
+
     // TODO: Write the file using the above parameters
 }
 
@@ -194,6 +252,7 @@ writeToFile("README.md", data);
 //     // TODO: Create a function to write README file
 //     function writeToFile('README.md', data) {
 // }
+
 
 // // TODO: Create a function to initialize app
 // function init() { }
@@ -205,4 +264,6 @@ function init() {
 }
 // // Function call to initialize app
 init();
+
+
 
