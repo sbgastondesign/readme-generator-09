@@ -2,7 +2,9 @@
 const inquirer = require('inquirer')
 const fs = require('fs')
 // const utils = require("utils")
-const generateMarkdown = require('./utils/generateMarkdown')
+const generateMarkdown = require('./utils/generateMarkdown');
+const InputPrompt = require('inquirer/lib/prompts/input');
+const { log } = require('console');
 
 
 // An array of questions for user input
@@ -132,7 +134,7 @@ function init() {
     inquirer.prompt(questions)
         .then(answers => {
             console.log("Inquirer Answers: ", answers);
-            writeToFile("README.md", readmeContent);
+            writeToFile("README.md", InputPrompt);
         });
 }
 
